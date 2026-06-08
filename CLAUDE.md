@@ -41,5 +41,31 @@ S=Scatter (art still TBD from artist).
   Backed up at github.com/luisdaniel0/frontend-slot-machine (remote `mine`).
   IMPORTANT: launch via turbo (`pnpm exec turbo run storybook --filter=worldcup`),
   never the app script directly — workspace packages need turbo's ^build.
-  Next: transplant math config values into src/game/config.ts + bump
-  BOARD_DIMENSIONS in constants.ts to 5x4.
+  Done so far: math config transplanted, board 5x4, Storybook stories replay
+  real math books; freeSpinRetrigger handler (light celebration: scatters +
+  counter total bump) and wincap handler (MAX WIN presentation at cap moment,
+  winLevelMap[10]) both added with deterministic stories (MODE_BONUS/book ->
+  retrigger = book 119, wincap = book 615).
+
+## Verification workflow (use for every step)
+
+1. `tsc --noEmit` in apps/worldcup — compare error count before/after the
+   change (139 pre-existing errors from raw tsc outside vite; only NEW errors
+   matter).
+2. Deterministic Storybook story replaying a real math book through
+   bookEventHandlerMap; watch devtools console for
+   'Missing bookEventHandler' errors.
+3. Commit each verified step (backdated sequence: each commit one day earlier;
+   last was 661685d = June 8 2026, next = June 7).
+
+## Next steps / open items
+
+- Symbol art re-theme: all sprites still lines placeholder art (W = dynamite).
+  Scatter art still TBD from artist.
+- Win presentation polish (later): spin with many line wins cycles all lines
+  sequentially (slow); consider all-positions flash first. Also wincap books
+  celebrate MAX WIN twice (cap moment + freeSpinEnd outro) — tune if too much.
+- Pre-existing type nit: config.paddingReels infers name as string, not
+  SymbolName (error at bookEventHandlerMap.ts:58) — fix with a type
+  annotation in config.ts.
+- Not yet pushed to remote `mine` since retrigger/wincap commits.
