@@ -59,6 +59,12 @@ type BookEventFreeSpinEnd = {
 	winLevel: number;
 };
 
+type BookEventWincap = {
+	index: number;
+	type: 'wincap';
+	amount: number;
+};
+
 type BookEventWinInfo = {
 	index: number;
 	type: 'winInfo';
@@ -95,6 +101,7 @@ export type BookEvent =
 	| BookEventCreateBonusSnapshot
 	| BookEventFinalWin
 	| BookEventSetWin
+	| BookEventWincap
 	| BookEventFreeSpinEnd
 	// customised
 	| BookEventCreateBonusSnapshot;

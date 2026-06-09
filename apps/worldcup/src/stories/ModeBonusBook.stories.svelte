@@ -52,6 +52,20 @@
 />
 
 <Story
+	name="wincap"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: {},
+		action: async () => {
+			// book id 615 hits the 5000x wincap on free spin 2
+			const data = books[3];
+			await playBet({ ...data, state: data.events });
+		},
+	})}
+	{template}
+/>
+
+<Story
 	name="retrigger"
 	args={templateArgs({
 		skipLoadingScreen: true,
