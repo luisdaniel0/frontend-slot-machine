@@ -98,6 +98,18 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'drawerButtonShow' });
 		eventEmitter.broadcast({ type: 'drawerFold' });
 	},
+	freeSpinRetrigger: async (bookEvent: BookEventOfType<'freeSpinRetrigger'>) => {
+		// animate scatters
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
+		await animateSymbols({ positions: bookEvent.positions });
+		// bump the counter total, keep the current spin number
+		eventEmitter.broadcast({
+			type: 'freeSpinCounterUpdate',
+			current: stateUi.freeSpinCounterCurrent,
+			total: bookEvent.totalFs,
+		});
+		stateUi.freeSpinCounterTotal = bookEvent.totalFs;
+	},
 	updateFreeSpin: async (bookEvent: BookEventOfType<'updateFreeSpin'>) => {
 		eventEmitter.broadcast({ type: 'freeSpinCounterShow' });
 		stateUi.freeSpinCounterShow = true;

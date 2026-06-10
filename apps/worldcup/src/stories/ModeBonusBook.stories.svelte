@@ -50,3 +50,17 @@
 	})}
 	{template}
 />
+
+<Story
+	name="retrigger"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: {},
+		action: async () => {
+			// book id 119 contains a freeSpinRetrigger event
+			const data = books[2];
+			await playBet({ ...data, state: data.events });
+		},
+	})}
+	{template}
+/>
