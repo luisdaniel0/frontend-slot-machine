@@ -1,13 +1,79 @@
 export default {
 	reveal: {
+		index: 0,
 		type: 'reveal',
 		board: [
+			[
+				{
+					name: 'L1',
+				},
+				{
+					name: 'H2',
+				},
+				{
+					name: 'S',
+					scatter: true,
+				},
+				{
+					name: 'L4',
+				},
+				{
+					name: 'L2',
+				},
+				{
+					name: 'H4',
+				},
+			],
+			[
+				{
+					name: 'L5',
+				},
+				{
+					name: 'H4',
+				},
+				{
+					name: 'L4',
+				},
+				{
+					name: 'L5',
+				},
+				{
+					name: 'H2',
+				},
+				{
+					name: 'L5',
+				},
+			],
+			[
+				{
+					name: 'H4',
+				},
+				{
+					name: 'L4',
+				},
+				{
+					name: 'H2',
+				},
+				{
+					name: 'S',
+					scatter: true,
+				},
+				{
+					name: 'L4',
+				},
+				{
+					name: 'L5',
+				},
+			],
 			[
 				{
 					name: 'L2',
 				},
 				{
 					name: 'L1',
+				},
+				{
+					name: 'L3',
 				},
 				{
 					name: 'L4',
@@ -21,46 +87,6 @@ export default {
 			],
 			[
 				{
-					name: 'H1',
-				},
-				{
-					name: 'L5',
-				},
-				{
-					name: 'L2',
-				},
-				{
-					name: 'H3',
-				},
-				{
-					name: 'L4',
-				},
-			],
-			[
-				{
-					name: 'L3',
-				},
-				{
-					name: 'L5',
-				},
-				{
-					name: 'L3',
-				},
-				{
-					name: 'H4',
-				},
-				{
-					name: 'L4',
-				},
-			],
-			[
-				{
-					name: 'H4',
-				},
-				{
-					name: 'H3',
-				},
-				{
 					name: 'L4',
 				},
 				{
@@ -69,48 +95,40 @@ export default {
 				{
 					name: 'L1',
 				},
-			],
-			[
+				{
+					name: 'S',
+					scatter: true,
+				},
+				{
+					name: 'H2',
+				},
 				{
 					name: 'H3',
 				},
-				{
-					name: 'L3',
-				},
-				{
-					name: 'L3',
-				},
-				{
-					name: 'H1',
-				},
-				{
-					name: 'H1',
-				},
 			],
 		],
-		paddingPositions: [216, 205, 195, 16, 65],
+		paddingPositions: [166, 68, 212, 181, 7],
 		gameType: 'basegame',
-		anticipation: [0, 0, 0, 0, 0],
+		anticipation: [0, 0, 0, 1, 2],
 	},
 	setTotalWin: {
+		index: 1,
 		type: 'setTotalWin',
-		amount: 1000,
-	},
-	finalWin: {
-		type: 'finalWin',
 		amount: 0,
 	},
+	finalWin: {
+		index: 34,
+		type: 'finalWin',
+		amount: 530,
+	},
 	freeSpinTrigger: {
+		index: 2,
 		type: 'freeSpinTrigger',
-		totalFs: 12,
+		totalFs: 8,
 		positions: [
 			{
 				reel: 0,
-				row: 3,
-			},
-			{
-				reel: 1,
-				row: 1,
+				row: 2,
 			},
 			{
 				reel: 2,
@@ -123,76 +141,54 @@ export default {
 		],
 	},
 	updateFreeSpin: {
+		index: 3,
 		type: 'updateFreeSpin',
-		amount: 1,
-		total: 12,
+		amount: 0,
+		total: 8,
 	},
 	winInfo: {
+		index: 5,
 		type: 'winInfo',
-		totalWin: 400,
+		totalWin: 30,
 		wins: [
 			{
-				symbol: 'H3',
+				symbol: 'L1',
 				kind: 3,
-				win: 200,
+				win: 30,
 				positions: [
 					{
 						reel: 0,
+						row: 2,
+					},
+					{
+						reel: 1,
 						row: 1,
 					},
 					{
-						reel: 1,
-						row: 2,
-					},
-					{
 						reel: 2,
-						row: 3,
+						row: 2,
 					},
 				],
 				meta: {
-					lineIndex: 4,
+					lineIndex: 9,
 					multiplier: 1,
-					winWithoutMult: 200,
+					winWithoutMult: 30,
 					globalMult: 1,
-					lineMultiplier: 1.0,
-				},
-			},
-			{
-				symbol: 'H3',
-				kind: 3,
-				win: 200,
-				positions: [
-					{
-						reel: 0,
-						row: 3,
-					},
-					{
-						reel: 1,
-						row: 2,
-					},
-					{
-						reel: 2,
-						row: 3,
-					},
-				],
-				meta: {
-					lineIndex: 13,
-					multiplier: 1,
-					winWithoutMult: 200,
-					globalMult: 1,
-					lineMultiplier: 1.0,
+					lineMultiplier: 1,
 				},
 			},
 		],
 	},
 	setWin: {
+		index: 6,
 		type: 'setWin',
-		amount: 400,
-		winLevel: 4,
+		amount: 30,
+		winLevel: 2,
 	},
 	freeSpinEnd: {
+		index: 33,
 		type: 'freeSpinEnd',
-		amount: 400,
-		winLevel: 2,
+		amount: 530,
+		winLevel: 3,
 	},
 };
