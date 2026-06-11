@@ -36,5 +36,10 @@ S=Scatter (art still TBD from artist).
 - Math: complete, verified at 0.97 both modes, uploaded to Stake Engine ACP
   and independently verified there (volatility 14.42 confirmed).
   Backed up at github.com/luisdaniel0/math-slot-machine (private, remote `mine`).
-- Frontend: not started. First milestone: run an existing sample app's
-  Storybook offline, then copy `apps/lines` -> new World Cup app.
+- Frontend: `apps/worldcup` created (copy of `apps/lines`, renamed:
+  package name, gameID 0_0_worldcup, UI title). Storybook verified working.
+  Backed up at github.com/luisdaniel0/frontend-slot-machine (remote `mine`).
+  IMPORTANT: launch via turbo (`pnpm exec turbo run storybook --filter=worldcup`),
+  never the app script directly — workspace packages need turbo's ^build.
+  Next: transplant math config values into src/game/config.ts + bump
+  BOARD_DIMENSIONS in constants.ts to 5x4.
