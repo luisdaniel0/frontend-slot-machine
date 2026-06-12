@@ -115,6 +115,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
 		stateGame.gameType = 'basegame';
 		eventEmitter.broadcast({ type: 'boardFrameGlowHide' });
+		eventEmitter.broadcast({ type: 'globalMultiplierHide' });
 		eventEmitter.broadcast({ type: 'freeSpinOutroShow' });
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_youwon_panel' });
 		winLevelSoundsPlay({ winLevelData });
@@ -147,6 +148,16 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	},
 	finalWin: async (bookEvent: BookEventOfType<'finalWin'>) => {
 		// Do nothing
+	},
+	// The Vault: persistent climbing global multiplier in Super/Mega FG.
+	// Only Super/Mega emit updateGlobalMult (Standard FG uses Wild local mults),
+	// so the first event also reveals the panel; freeSpinEnd hides it.
+	updateGlobalMult: async (bookEvent: BookEventOfType<'updateGlobalMult'>) => {
+		eventEmitter.broadcast({ type: 'globalMultiplierShow' });
+		await eventEmitter.broadcastAsync({
+			type: 'globalMultiplierUpdate',
+			multiplier: bookEvent.globalMult,
+		});
 	},
 	// customised
 	createBonusSnapshot: async (bookEvent: BookEventOfType<'createBonusSnapshot'>) => {

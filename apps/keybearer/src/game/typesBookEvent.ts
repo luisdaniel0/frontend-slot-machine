@@ -52,6 +52,12 @@ type BookEventFreeSpinEnd = {
 	winLevel: number;
 };
 
+type BookEventUpdateGlobalMult = {
+	index: number;
+	type: 'updateGlobalMult';
+	globalMult: number;
+};
+
 type BookEventWinInfo = {
 	index: number;
 	type: 'winInfo';
@@ -88,6 +94,7 @@ export type BookEvent =
 	| BookEventFinalWin
 	| BookEventSetWin
 	| BookEventFreeSpinEnd
+	| BookEventUpdateGlobalMult
 	// customised
 	| BookEventCreateBonusSnapshot;
 
