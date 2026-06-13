@@ -339,7 +339,8 @@ export const SYMBOL_INFO_MAP = {
 			sizeRatios: wSizeRatios,
 		},
 	},
-	S: {
+	// K (Key) scatter — uses the placeholder scatter art ('S' assets) until art re-theme
+	K: {
 		explosion,
 		postWinStatic: sStatic,
 		static: sStatic,

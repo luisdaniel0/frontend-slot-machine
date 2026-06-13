@@ -9,7 +9,7 @@ import { playBookEvent } from './utils';
 import { winLevelMap, type WinLevel, type WinLevelData } from './winLevelMap';
 import { stateGame, stateGameDerived } from './stateGame.svelte';
 import type { BookEvent, BookEventOfType, BookEventContext } from './typesBookEvent';
-import type { Position } from './types';
+import type { Position, RawSymbol } from './types';
 import config from './config';
 
 const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) => {
@@ -55,7 +55,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		stateGame.gameType = bookEvent.gameType;
 		await stateGameDerived.enhancedBoard.spin({
 			revealEvent: bookEvent,
-			paddingBoard: config.paddingReels[bookEvent.gameType],
+			paddingBoard: config.paddingReels[bookEvent.gameType] as RawSymbol[][],
 		});
 		eventEmitter.broadcast({ type: 'soundScatterCounterClear' });
 	},
