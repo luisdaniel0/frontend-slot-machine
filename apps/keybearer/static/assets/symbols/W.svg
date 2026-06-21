@@ -1,0 +1,22 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wild">
+  <defs>
+    <linearGradient id="wGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6de"></stop><stop offset="0.4" stop-color="#e8c66a"></stop><stop offset="1" stop-color="#b07e2f"></stop></linearGradient>
+    <radialGradient id="wAura" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#9d6bff"></stop><stop offset="0.5" stop-color="#7b3ff2" stop-opacity="0.55"></stop><stop offset="1" stop-color="#7b3ff2" stop-opacity="0"></stop></radialGradient>
+    <filter id="wG" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3.4" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="84" fill="url(#wAura)"></circle>
+  
+  <g stroke="url(#wGold)" stroke-width="4" stroke-linecap="round" opacity="0.85">
+    <path d="M100 16 V40 M100 160 V184 M16 100 H40 M160 100 H184 M40 40 L57 57 M160 160 L143 143 M160 40 L143 57 M40 160 L57 143"></path>
+  </g>
+  <g filter="url(#wG)">
+    
+    <path d="M100 70 C88 56 64 60 62 80 C60 98 84 112 100 126 C116 112 140 98 138 80 C136 60 112 56 100 70 Z" fill="url(#wGold)" stroke="#fff6de" stroke-width="2.5" stroke-linejoin="round"></path>
+    <path d="M74 70 L80 52 L92 66 M100 64 L100 46 M126 70 L120 52 L108 66" stroke="url(#wGold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+    
+    <circle cx="100" cy="86" r="9" fill="#1b0f3a"></circle>
+    <rect x="96" y="90" width="8" height="14" rx="3" fill="#1b0f3a"></rect>
+    <circle cx="100" cy="86" r="3.2" fill="#c4a3ff"></circle>
+  </g>
+  <text x="100" y="150" text-anchor="middle" font-family="Cinzel Decorative, serif" font-weight="700" font-size="22" letter-spacing="2" fill="#fff6de">WILD</text>
+</svg>

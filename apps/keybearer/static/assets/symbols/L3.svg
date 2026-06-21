@@ -1,0 +1,14 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Low 3 diamond rune">
+  <defs>
+    <linearGradient id="l3g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9af3f7"></stop><stop offset="0.55" stop-color="#2fd0db"></stop><stop offset="1" stop-color="#1799a8"></stop></linearGradient>
+    <radialGradient id="l3a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#5ce4ec" stop-opacity="0.6"></stop><stop offset="1" stop-color="#2fd0db" stop-opacity="0"></stop></radialGradient>
+    <filter id="l3f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="74" fill="url(#l3a)"></circle>
+  <rect x="46" y="46" width="108" height="108" rx="20" transform="rotate(45 100 100)" fill="none" stroke="#b07e2f" stroke-width="2.5" opacity="0.7"></rect>
+  <g filter="url(#l3f)" stroke="#dffafd" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M100 56 L142 100 L100 144 L58 100 Z" fill="url(#l3g)"></path>
+    <path d="M100 56 L100 144 M58 100 L142 100 M79 78 L100 100 L121 78" stroke="#dffafd" stroke-width="1.5" opacity="0.7" fill="none"></path>
+    <path d="M82 76 C78 84 80 94 88 100" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity="0.75" fill="none"></path>
+  </g>
+</svg>

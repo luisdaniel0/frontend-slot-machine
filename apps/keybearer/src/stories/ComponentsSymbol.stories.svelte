@@ -7,7 +7,7 @@
 		args: {
 			x: 100,
 			y: 100,
-			rawSymbol: { name: 'S', scatter: true },
+			rawSymbol: { name: 'K', scatter: true },
 			state: 'static',
 		},
 	});
@@ -32,7 +32,7 @@
 	] as const;
 
 	const SYMBOLS_RIGHT = [
-		{ name: 'S' },
+		{ name: 'K' },
 		{ name: 'W', multiplier: 2 },
 		{ name: 'H1' },
 		{ name: 'H3' },

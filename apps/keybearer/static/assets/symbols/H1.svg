@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="High 1 crown">
+  <defs>
+    <linearGradient id="h1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6de"></stop><stop offset="0.4" stop-color="#e8c66a"></stop><stop offset="1" stop-color="#b07e2f"></stop></linearGradient>
+    <radialGradient id="h1a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f4dd97"></stop><stop offset="0.5" stop-color="#d2a149" stop-opacity="0.5"></stop><stop offset="1" stop-color="#d2a149" stop-opacity="0"></stop></radialGradient>
+    <filter id="h1f" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="82" fill="url(#h1a)"></circle>
+  <g filter="url(#h1f)">
+    
+    <path d="M52 76 L70 116 H130 L148 76 L122 96 L100 58 L78 96 Z" fill="url(#h1g)" stroke="#fff6de" stroke-width="2.5" stroke-linejoin="round"></path>
+    
+    <rect x="66" y="120" width="68" height="16" rx="5" fill="url(#h1g)" stroke="#8a5e22" stroke-width="1.5"></rect>
+    
+    <path d="M100 128 c-4 -4 -11 -2 -11 4 c0 5 7 9 11 12 c4 -3 11 -7 11 -12 c0 -6 -7 -8 -11 -4 z" fill="#ff4d9b"></path>
+    <circle cx="78" cy="128" r="4" fill="#5ce4ec"></circle><circle cx="122" cy="128" r="4" fill="#5ce4ec"></circle>
+    
+    <circle cx="52" cy="76" r="5" fill="#ff86bd"></circle><circle cx="100" cy="58" r="6" fill="#9af3f7"></circle><circle cx="148" cy="76" r="5" fill="#ff86bd"></circle>
+  </g>
+</svg>

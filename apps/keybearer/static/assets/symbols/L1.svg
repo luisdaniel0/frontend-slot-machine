@@ -1,0 +1,13 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Low 1 spade rune">
+  <defs>
+    <linearGradient id="l1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c4a3ff"></stop><stop offset="0.55" stop-color="#7b3ff2"></stop><stop offset="1" stop-color="#5e2bd0"></stop></linearGradient>
+    <radialGradient id="l1a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#9d6bff" stop-opacity="0.6"></stop><stop offset="1" stop-color="#7b3ff2" stop-opacity="0"></stop></radialGradient>
+    <filter id="l1f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="74" fill="url(#l1a)"></circle>
+  <rect x="46" y="46" width="108" height="108" rx="20" transform="rotate(45 100 100)" fill="none" stroke="#b07e2f" stroke-width="2.5" opacity="0.7"></rect>
+  <g filter="url(#l1f)" stroke="#e9def9" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M100 60 C120 84 142 96 142 116 C142 132 128 140 116 134 C112 132 108 128 106 124 C108 136 112 142 120 148 H80 C88 142 92 136 94 124 C92 128 88 132 84 134 C72 140 58 132 58 116 C58 96 80 84 100 60 Z" fill="url(#l1g)"></path>
+    <path d="M100 76 C96 92 90 102 84 110" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity="0.7" fill="none"></path>
+  </g>
+</svg>

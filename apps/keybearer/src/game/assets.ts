@@ -264,6 +264,19 @@ export default {
 		type: 'sprites',
 		src: new URL('../../assets/sprites/symbolsStatic/symbolsStatic.json', import.meta.url).href,
 	},
+	// Keybearer Design System symbol art (SVG, rasterized by Pixi at load).
+	// One standalone sprite per symbol; keys are referenced from SYMBOL_INFO_MAP.
+	sym_W: { type: 'sprite', src: new URL('../../assets/symbols/W.svg', import.meta.url).href },
+	sym_K: { type: 'sprite', src: new URL('../../assets/symbols/K.svg', import.meta.url).href },
+	sym_H1: { type: 'sprite', src: new URL('../../assets/symbols/H1.svg', import.meta.url).href },
+	sym_H2: { type: 'sprite', src: new URL('../../assets/symbols/H2.svg', import.meta.url).href },
+	sym_H3: { type: 'sprite', src: new URL('../../assets/symbols/H3.svg', import.meta.url).href },
+	sym_H4: { type: 'sprite', src: new URL('../../assets/symbols/H4.svg', import.meta.url).href },
+	sym_L1: { type: 'sprite', src: new URL('../../assets/symbols/L1.svg', import.meta.url).href },
+	sym_L2: { type: 'sprite', src: new URL('../../assets/symbols/L2.svg', import.meta.url).href },
+	sym_L3: { type: 'sprite', src: new URL('../../assets/symbols/L3.svg', import.meta.url).href },
+	sym_L4: { type: 'sprite', src: new URL('../../assets/symbols/L4.svg', import.meta.url).href },
+	sym_L5: { type: 'sprite', src: new URL('../../assets/symbols/L5.svg', import.meta.url).href },
 	coins: {
 		type: 'spriteSheet',
 		src: new URL('../../assets/sprites/coin/SD2_Coin.json', import.meta.url).href,

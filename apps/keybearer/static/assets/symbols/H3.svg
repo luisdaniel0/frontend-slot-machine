@@ -1,0 +1,17 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="High 3 heart crystal">
+  <defs>
+    <linearGradient id="h3g" x1="0" y1="0" x2="0.4" y2="1"><stop offset="0" stop-color="#ff86bd"></stop><stop offset="0.5" stop-color="#e62a82"></stop><stop offset="1" stop-color="#8e1450"></stop></linearGradient>
+    <radialGradient id="h3a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#ff4d9b"></stop><stop offset="0.5" stop-color="#e62a82" stop-opacity="0.5"></stop><stop offset="1" stop-color="#e62a82" stop-opacity="0"></stop></radialGradient>
+    <filter id="h3f" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="82" fill="url(#h3a)"></circle>
+  <g filter="url(#h3f)" stroke="#ffd9ea" stroke-width="2.4" stroke-linejoin="round">
+    
+    <path d="M100 64 C88 48 60 50 58 76 C56 100 84 122 100 140 C116 122 144 100 142 76 C140 50 112 48 100 64 Z" fill="url(#h3g)"></path>
+    
+    <path d="M100 64 L100 140 M58 76 L100 96 L142 76 M76 110 L100 96 L124 110" stroke="#ffd9ea" stroke-width="1.6" opacity="0.7" fill="none"></path>
+    
+    <path d="M74 72 C70 80 72 90 80 96" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity="0.85" fill="none"></path>
+  </g>
+  <g fill="#fff6de"><path d="M150 70 l1.6 5 l5 1.6 l-5 1.6 l-1.6 5 l-1.6 -5 l-5 -1.6 l5 -1.6 z" opacity="0.9"></path></g>
+</svg>

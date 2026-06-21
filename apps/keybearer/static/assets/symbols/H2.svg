@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="High 2 chalice">
+  <defs>
+    <linearGradient id="h2g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6de"></stop><stop offset="0.4" stop-color="#e8c66a"></stop><stop offset="1" stop-color="#b07e2f"></stop></linearGradient>
+    <radialGradient id="h2a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#9af3f7"></stop><stop offset="0.5" stop-color="#2fd0db" stop-opacity="0.5"></stop><stop offset="1" stop-color="#2fd0db" stop-opacity="0"></stop></radialGradient>
+    <filter id="h2f" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="82" fill="url(#h2a)"></circle>
+  <g filter="url(#h2f)">
+    
+    <path d="M62 62 H138 C138 96 120 116 100 118 C80 116 62 96 62 62 Z" fill="url(#h2g)" stroke="#fff6de" stroke-width="2.5" stroke-linejoin="round"></path>
+    
+    <path d="M70 68 H130 C129 80 118 90 100 91 C82 90 71 80 70 68 Z" fill="#2fd0db"></path>
+    <ellipse cx="100" cy="68" rx="30" ry="5" fill="#9af3f7"></ellipse>
+    
+    <rect x="95" y="118" width="10" height="22" fill="url(#h2g)"></rect>
+    <path d="M74 150 H126 L118 138 H82 Z" fill="url(#h2g)" stroke="#8a5e22" stroke-width="1.5"></path>
+    <circle cx="100" cy="129" r="5" fill="#ff4d9b"></circle>
+  </g>
+  <g fill="#9af3f7"><circle cx="100" cy="48" r="2.6"></circle><circle cx="86" cy="54" r="1.8" opacity="0.7"></circle><circle cx="114" cy="54" r="1.8" opacity="0.7"></circle></g>
+</svg>

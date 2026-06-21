@@ -1,0 +1,16 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Low 4 club rune">
+  <defs>
+    <linearGradient id="l4g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff6de"></stop><stop offset="0.5" stop-color="#e8c66a"></stop><stop offset="1" stop-color="#b07e2f"></stop></linearGradient>
+    <radialGradient id="l4a" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#f4dd97" stop-opacity="0.55"></stop><stop offset="1" stop-color="#d2a149" stop-opacity="0"></stop></radialGradient>
+    <filter id="l4f" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.6" result="b"></feGaussianBlur><feMerge><feMergeNode in="b"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter>
+  </defs>
+  <circle cx="100" cy="100" r="74" fill="url(#l4a)"></circle>
+  <rect x="46" y="46" width="108" height="108" rx="20" transform="rotate(45 100 100)" fill="none" stroke="#b07e2f" stroke-width="2.5" opacity="0.7"></rect>
+  <g filter="url(#l4f)" stroke="#fff6de" stroke-width="2.2" stroke-linejoin="round">
+    <circle cx="100" cy="78" r="20" fill="url(#l4g)"></circle>
+    <circle cx="76" cy="108" r="20" fill="url(#l4g)"></circle>
+    <circle cx="124" cy="108" r="20" fill="url(#l4g)"></circle>
+    <path d="M92 116 C92 132 88 142 80 150 H120 C112 142 108 132 108 116 Z" fill="url(#l4g)"></path>
+    <path d="M90 70 C86 76 86 84 92 88" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity="0.7" fill="none"></path>
+  </g>
+</svg>
