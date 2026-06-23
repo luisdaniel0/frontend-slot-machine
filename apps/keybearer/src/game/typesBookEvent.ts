@@ -38,6 +38,22 @@ type BookEventUpdateFreeSpin = {
 	total: number;
 };
 
+// Mid-feature retrigger: extra Keys land during a free game and award more
+// spins. Same shape as freeSpinTrigger; `totalFs` is the new spin total.
+type BookEventFreeSpinRetrigger = {
+	index: number;
+	type: 'freeSpinRetrigger';
+	totalFs: number;
+	positions: Position[];
+};
+
+// The round reached the hard max-win cap (25,000x). `amount` is the capped total.
+type BookEventWincap = {
+	index: number;
+	type: 'wincap';
+	amount: number;
+};
+
 type BookEventSetWin = {
 	index: number;
 	type: 'setWin';
@@ -90,6 +106,8 @@ export type BookEvent =
 	| BookEventSetTotalWin
 	| BookEventFreeSpinTrigger
 	| BookEventUpdateFreeSpin
+	| BookEventFreeSpinRetrigger
+	| BookEventWincap
 	| BookEventCreateBonusSnapshot
 	| BookEventFinalWin
 	| BookEventSetWin

@@ -98,6 +98,23 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'drawerButtonShow' });
 		eventEmitter.broadcast({ type: 'drawerFold' });
 	},
+	// Mid-feature retrigger: a lighter freeSpinTrigger — celebrate the new Keys
+	// and bump the spin-counter total, but skip the intro/transition (we are
+	// already inside the free game).
+	freeSpinRetrigger: async (bookEvent: BookEventOfType<'freeSpinRetrigger'>) => {
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
+		await animateSymbols({ positions: bookEvent.positions });
+		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_superfreespin' });
+
+		eventEmitter.broadcast({ type: 'freeSpinCounterShow' });
+		stateUi.freeSpinCounterShow = true;
+		eventEmitter.broadcast({
+			type: 'freeSpinCounterUpdate',
+			current: stateUi.freeSpinCounterCurrent,
+			total: bookEvent.totalFs,
+		});
+		stateUi.freeSpinCounterTotal = bookEvent.totalFs;
+	},
 	updateFreeSpin: async (bookEvent: BookEventOfType<'updateFreeSpin'>) => {
 		eventEmitter.broadcast({ type: 'freeSpinCounterShow' });
 		stateUi.freeSpinCounterShow = true;
@@ -135,6 +152,21 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	},
 	setWin: async (bookEvent: BookEventOfType<'setWin'>) => {
 		const winLevelData = winLevelMap[bookEvent.winLevel as WinLevel];
+
+		eventEmitter.broadcast({ type: 'winShow' });
+		winLevelSoundsPlay({ winLevelData });
+		await eventEmitter.broadcastAsync({
+			type: 'winUpdate',
+			amount: bookEvent.amount,
+			winLevelData,
+		});
+		winLevelSoundsStop();
+		eventEmitter.broadcast({ type: 'winHide' });
+	},
+	// The round hit the hard 25,000x cap. Present the top win band (MAX WIN)
+	// at the cap moment, mirroring setWin but forcing winLevelMap[10].
+	wincap: async (bookEvent: BookEventOfType<'wincap'>) => {
+		const winLevelData = winLevelMap[10];
 
 		eventEmitter.broadcast({ type: 'winShow' });
 		winLevelSoundsPlay({ winLevelData });

@@ -96,6 +96,26 @@
 />
 
 <Story
+	name="freeSpinRetrigger"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: events.freeSpinRetrigger,
+		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
+	})}
+	{template}
+/>
+
+<Story
+	name="wincap"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: events.wincap,
+		action: async (data) => await playBookEvent(data, { bookEvents: [] }),
+	})}
+	{template}
+/>
+
+<Story
 	name="freeSpinEnd"
 	args={templateArgs({
 		skipLoadingScreen: true,

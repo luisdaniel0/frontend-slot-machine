@@ -50,3 +50,19 @@
 	})}
 	{template}
 />
+
+<!-- Deterministic: book 1 lands extra Keys mid-feature (freeSpinRetrigger) AND
+     reaches the 25,000x cap (wincap), so it exercises both handlers in one run. -->
+<Story
+	name="retrigger + wincap"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: {},
+		action: async () => {
+			const data = books[1];
+			console.log('Running deterministic book at index 1 (retrigger + wincap)');
+			await playBet({ ...data, state: data.events });
+		},
+	})}
+	{template}
+/>
