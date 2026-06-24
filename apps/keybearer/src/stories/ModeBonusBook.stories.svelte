@@ -51,16 +51,17 @@
 	{template}
 />
 
-<!-- Deterministic: book 1 lands extra Keys mid-feature (freeSpinRetrigger) AND
-     reaches the 25,000x cap (wincap), so it exercises both handlers in one run. -->
+<!-- Deterministic: book 1 is a Super feature that reaches the 25,000x cap
+     (wincap), in a bounded 16 spins. Super no longer retriggers, so the
+     freeSpinRetrigger handler is exercised by the base-mode (Standard FG) books. -->
 <Story
-	name="retrigger + wincap"
+	name="wincap"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
 		action: async () => {
 			const data = books[1];
-			console.log('Running deterministic book at index 1 (retrigger + wincap)');
+			console.log('Running deterministic book at index 1 (wincap)');
 			await playBet({ ...data, state: data.events });
 		},
 	})}
