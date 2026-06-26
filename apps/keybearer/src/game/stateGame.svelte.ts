@@ -79,13 +79,23 @@ export const stateGame = $state({
 	scatterCounter: 0,
 });
 
-const boardLayout = () => ({
-	x: stateLayoutDerived.mainLayout().width * 0.5,
-	y: stateLayoutDerived.mainLayout().height * 0.5,
-	anchor: { x: 0.5, y: 0.5 },
-	pivot: { x: BOARD_SIZES.width / 2, y: BOARD_SIZES.height / 2 },
-	...BOARD_SIZES,
-});
+// The HUD (balance/win/bet + buttons) is anchored to the bottom of the screen
+// in every layout, so we reserve a band at the bottom of the main frame and
+// center the board in the play area above it. Without this, the 5x4 board's
+// bottom row drops into the HUD row (it was fine at 5x3). Expressed as a
+// fraction of the main height so it scales across desktop/landscape/portrait.
+const HUD_RESERVE_RATIO = 0.22;
+
+const boardLayout = () => {
+	const main = stateLayoutDerived.mainLayout();
+	return {
+		x: main.width * 0.5,
+		y: (main.height * (1 - HUD_RESERVE_RATIO)) * 0.5,
+		anchor: { x: 0.5, y: 0.5 },
+		pivot: { x: BOARD_SIZES.width / 2, y: BOARD_SIZES.height / 2 },
+		...BOARD_SIZES,
+	};
+};
 
 const boardRaw = () =>
 	board.map((reel) => reel.reelState.symbols.map((reelSymbol) => reelSymbol.rawSymbol));
