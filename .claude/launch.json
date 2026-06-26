@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "keybearer-storybook",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "keybearer", "storybook"],
+      "port": 6001
+    }
+  ]
+}
