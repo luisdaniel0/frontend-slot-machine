@@ -57,3 +57,10 @@ packages/e2e/math-testing/*/*.json
 packages/e2e/math-testing/*/*.png
 packages/e2e/math-testing/*/*.txt
 packages/e2e/math-testing/__pycache__/*
+# Starwake: Storybook playtest books are GENERATED from the math pool by
+# math-sdk/games/starwake/export_story_books.py. They are ~19 MB, change on every
+# regeneration, and each version would be a permanent blob in history. Regenerate
+# instead of committing:
+#   ./env/bin/python games/starwake/export_story_books.py
+apps/starwake/src/stories/data/*_books.ts
+apps/starwake/src/stories/data/*_scenarios.ts

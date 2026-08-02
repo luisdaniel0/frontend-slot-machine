@@ -20,10 +20,16 @@
 		fill: WHITE,
 	} as const;
 
+	// `padding` reserves margin around the rasterised text texture. Without it,
+	// PixiJS can leave a sliver of the previous render at the trailing edge when a
+	// Text re-rasterises -- visible as a stray bar after the last digit. It only
+	// showed on WIN because that is the one value driven by a Tween, so it
+	// re-rasterises every animation frame; the static BET/BALANCE labels never did.
 	const valueStyle = {
 		fontFamily: 'proxima-nova',
 		fontSize: UI_BASE_FONT_SIZE,
 		fill: WHITE,
+		padding: 8,
 	} as const;
 </script>
 
