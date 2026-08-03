@@ -2,19 +2,20 @@
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-		title: 'STARWAKE/base',
+		title: 'STARWAKE/ante_starfall',
 	});
 </script>
 
 <script lang="ts">
 	/**
-	 * base (1x) -- the scatter hunt. 3/4/5 stars deal Corvus/Ursa/Draco; a feature
-	 * lands roughly every 148 spins, and the tier mix is 1 in 220 / 600 / 1,900.
+	 * ante_starfall (1.5x) -- the juiced hunt. Denser star scatters mean more
+	 * triggers AND a richer tier mix (draco is ~1.9x likelier than in base), so a
+	 * feature lands every ~100 spins instead of ~148.
 	 *
-	 * 70.75% of spins pay nothing and 11.58% return at least the stake, which is
-	 * mid-market for a Very High volatility game. The named stories skip the hunt
-	 * so a feature can actually be watched -- spinning at random you would see a
-	 * dead spin 7 times in 10.
+	 * Counterintuitively it is the CALMER mode: same 0.9665 RTP delivered in more,
+	 * smaller chunks, so std drops 24.16 -> 21.93. That matches the market (MIKO's
+	 * ante halves its base volatility). It is the mode for players who like the
+	 * hunt but not the wait -- not a lottery ticket.
 	 */
 	import {
 		StoryGameTemplate,
@@ -27,15 +28,15 @@
 	import Game from '../components/Game.svelte';
 	import { setContext } from '../game/context';
 	import { playBet } from '../game/utils';
-	import books from './data/base_books';
-	import scenarios from './data/base_scenarios';
+	import books from './data/ante_starfall_books';
+	import scenarios from './data/ante_starfall_scenarios';
 
 	setContext();
 
 	const play = async (index: number, label: string) => {
 		const data = books[index];
 		if (!data) {
-			console.warn(`[${label}] no book at index ${index} -- re-export base`);
+			console.warn(`[${label}] no book at index ${index} -- re-export ante_starfall`);
 			return;
 		}
 		console.log(`[${label}] book id ${data.id}, pays ${(data.payoutMultiplier / 100).toFixed(2)}x`);
@@ -72,7 +73,7 @@
 	{template}
 />
 
-<!-- The rare 5-scatter trigger: the dragon, off a 1x base spin. -->
+<!-- The rare 5-scatter trigger: the dragon, reached from an ante spin. -->
 <Story
 	name="draco wakes"
 	args={templateArgs({
@@ -93,7 +94,7 @@
 	{template}
 />
 
-<!-- The tier mix a base spin can deal. -->
+<!-- The tier mix an ante spin can deal. -->
 <Story
 	name="corvus (3 scatters)"
 	args={templateArgs({

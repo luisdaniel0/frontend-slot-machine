@@ -21,6 +21,7 @@
 	import Board from './Board.svelte';
 	import BoardContainer from './BoardContainer.svelte';
 	import Constellation from './Constellation.svelte';
+	import StarChart from './StarChart.svelte';
 	import Anticipations from './Anticipations.svelte';
 	import Win from './Win.svelte';
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
@@ -73,6 +74,7 @@
 		<MainContainer>
 			<BoardContainer>
 				<Constellation />
+				<StarChart />
 			</BoardContainer>
 		</MainContainer>
 

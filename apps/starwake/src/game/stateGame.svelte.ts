@@ -93,7 +93,7 @@ export type ConstellationState = {
 	complete: boolean;
 	/** Beast footprint this spin; empty until it wakes. */
 	beastCells: Position[];
-	beastShape: number[] | undefined;
+	beastShape: { reels: number; rows: number } | undefined;
 	multiplier: number;
 };
 

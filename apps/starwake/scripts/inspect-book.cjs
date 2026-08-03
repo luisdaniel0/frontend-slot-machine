@@ -9,7 +9,8 @@ const strip = (p) =>
 			.readFileSync(p, 'utf8')
 			.replace(/^\/\/.*$/gm, '')
 			.replace('export default', '')
-			.replace(/as const;\s*$/, '')
+			.replace(/\s*as const\s*;?\s*$/, '')
+			.replace(/;\s*$/, '')
 			.trim(),
 	);
 

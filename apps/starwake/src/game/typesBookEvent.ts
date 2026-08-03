@@ -116,8 +116,8 @@ type BookEventBeastWake = {
 	type: 'beastWake';
 	tier: ConstellationTier;
 	beast: ConstellationTier;
-	/** [width, height] in cells -- currently 2x2 for every tier. */
-	beastShape: number[];
+	/** Block footprint in cells -- currently {reels:2, rows:2} for every tier. */
+	beastShape: { reels: number; rows: number };
 };
 
 /** The woken beast moves; `cells` is its footprint this spin. */

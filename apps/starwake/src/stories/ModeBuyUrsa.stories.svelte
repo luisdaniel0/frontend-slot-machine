@@ -2,19 +2,19 @@
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-		title: 'STARWAKE/base',
+		title: 'STARWAKE/buy_ursa',
 	});
 </script>
 
 <script lang="ts">
 	/**
-	 * base (1x) -- the scatter hunt. 3/4/5 stars deal Corvus/Ursa/Draco; a feature
-	 * lands roughly every 148 spins, and the tier mix is 1 in 220 / 600 / 1,900.
+	 * buy_ursa (240x) -- the reliable tier. 4 cells, 10 spins, ~84% completion.
+	 * Lowest volatility buy and the only one that cannot reach 25,000x; it
+	 * publishes an honest 10,000x instead.
 	 *
-	 * 70.75% of spins pay nothing and 11.58% return at least the stake, which is
-	 * mid-market for a Very High volatility game. The named stories skip the hunt
-	 * so a feature can actually be watched -- spinning at random you would see a
-	 * dead spin 7 times in 10.
+	 * Named stories play a SPECIFIC book so a feel question can be answered on
+	 * demand instead of by spinning and hoping. Indices come from the generated
+	 * scenario map, so they stay correct when the books are re-exported.
 	 */
 	import {
 		StoryGameTemplate,
@@ -27,22 +27,22 @@
 	import Game from '../components/Game.svelte';
 	import { setContext } from '../game/context';
 	import { playBet } from '../game/utils';
-	import books from './data/base_books';
-	import scenarios from './data/base_scenarios';
+	import books from './data/buy_ursa_books';
+	import scenarios from './data/buy_ursa_scenarios';
 
 	setContext();
 
 	const play = async (index: number, label: string) => {
 		const data = books[index];
 		if (!data) {
-			console.warn(`[${label}] no book at index ${index} -- re-export base`);
+			console.warn(`[${label}] no book at index ${index} -- re-export buy_ursa`);
 			return;
 		}
 		console.log(`[${label}] book id ${data.id}, pays ${(data.payoutMultiplier / 100).toFixed(2)}x`);
 		await playBet({ ...data, state: data.events });
 	};
 
-	const at = (name: string) => (scenarios as Record<string, number>)[name] ?? 0;
+	const at = (name: keyof typeof scenarios) => (scenarios as Record<string, number>)[name] ?? 0;
 </script>
 
 {#snippet template(args: TemplateArgs<any>)}
@@ -72,40 +72,9 @@
 	{template}
 />
 
-<!-- The rare 5-scatter trigger: the dragon, off a 1x base spin. -->
+<!-- The crow wakes and roams: the tier's normal, expected outcome. -->
 <Story
-	name="draco wakes"
-	args={templateArgs({
-		skipLoadingScreen: true,
-		data: {},
-		action: async () => await play(at('draco_wakes'), 'draco_wakes'),
-	})}
-	{template}
-/>
-
-<Story
-	name="draco top rung"
-	args={templateArgs({
-		skipLoadingScreen: true,
-		data: {},
-		action: async () => await play(at('draco_top_rung'), 'draco_top_rung'),
-	})}
-	{template}
-/>
-
-<!-- The tier mix a base spin can deal. -->
-<Story
-	name="corvus (3 scatters)"
-	args={templateArgs({
-		skipLoadingScreen: true,
-		data: {},
-		action: async () => await play(at('corvus_wakes'), 'corvus_wakes'),
-	})}
-	{template}
-/>
-
-<Story
-	name="ursa (4 scatters)"
+	name="wakes"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
@@ -114,27 +83,40 @@
 	{template}
 />
 
+<!-- Beast reaches the top of its 9-rung ladder (200x). -->
 <Story
-	name="draco (5 scatters)"
+	name="top rung"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
-		action: async () => await play(at('draco_wakes'), 'draco_wakes'),
+		action: async () => await play(at('ursa_top_rung_2'), 'ursa_top_rung_2'),
 	})}
 	{template}
 />
 
-<!-- A roll that fizzles: the carpet paying with no beast. -->
+<!-- Completed on the last spin: rides the 2-spin guaranteed roam floor. -->
+<Story
+	name="roam floor"
+	args={templateArgs({
+		skipLoadingScreen: true,
+		data: {},
+		action: async () => await play(at('ursa_roam_floor'), 'ursa_roam_floor'),
+	})}
+	{template}
+/>
+
+<!-- Never completes -- the carpet paying on its own. ~16% of corvus buys. -->
 <Story
 	name="never completes"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
-		action: async () => await play(at('draco_never_completes'), 'draco_never_completes'),
+		action: async () => await play(at('ursa_never_completes'), 'ursa_never_completes'),
 	})}
 	{template}
 />
 
+<!-- The mode's published ceiling (25,000x). -->
 <Story
 	name="max win (25,000x)"
 	args={templateArgs({

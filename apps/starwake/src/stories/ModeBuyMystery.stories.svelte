@@ -2,19 +2,22 @@
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 
 	const { Story } = defineMeta({
-		title: 'STARWAKE/base',
+		title: 'STARWAKE/buy_mystery',
 	});
 </script>
 
 <script lang="ts">
 	/**
-	 * base (1x) -- the scatter hunt. 3/4/5 stars deal Corvus/Ursa/Draco; a feature
-	 * lands roughly every 148 spins, and the tier mix is 1 in 220 / 600 / 1,900.
+	 * buy_mystery (563x) -- "Let the Sky Decide". A weighted roll across all four
+	 * tiers: corvus 35.16% / ursa 29.64% / draco 25.15% / ASCENDANT 10.05%.
 	 *
-	 * 70.75% of spins pay nothing and 11.58% return at least the stake, which is
-	 * mid-market for a Very High volatility game. The named stories skip the hunt
-	 * so a feature can actually be watched -- spinning at random you would see a
-	 * dead spin 7 times in 10.
+	 * Ascendant is the mystery-exclusive outcome and cannot be bought directly: a
+	 * Draco dealt with two cells already lit, which completes far more often and
+	 * far earlier. It carries ~47% of the mode's payback on 10% of rolls -- the
+	 * shape that lets this mode be priced above buy_draco at all.
+	 *
+	 * The per-tier stories below are the point of this file: you can see what each
+	 * roll actually feels like instead of waiting for the weighting to deliver one.
 	 */
 	import {
 		StoryGameTemplate,
@@ -27,15 +30,15 @@
 	import Game from '../components/Game.svelte';
 	import { setContext } from '../game/context';
 	import { playBet } from '../game/utils';
-	import books from './data/base_books';
-	import scenarios from './data/base_scenarios';
+	import books from './data/buy_mystery_books';
+	import scenarios from './data/buy_mystery_scenarios';
 
 	setContext();
 
 	const play = async (index: number, label: string) => {
 		const data = books[index];
 		if (!data) {
-			console.warn(`[${label}] no book at index ${index} -- re-export base`);
+			console.warn(`[${label}] no book at index ${index} -- re-export buy_mystery`);
 			return;
 		}
 		console.log(`[${label}] book id ${data.id}, pays ${(data.payoutMultiplier / 100).toFixed(2)}x`);
@@ -72,30 +75,30 @@
 	{template}
 />
 
-<!-- The rare 5-scatter trigger: the dragon, off a 1x base spin. -->
+<!-- ASCENDANT: the roll you cannot buy. Two cells pre-lit, ~90% completion. -->
 <Story
-	name="draco wakes"
+	name="ascendant wakes"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
-		action: async () => await play(at('draco_wakes'), 'draco_wakes'),
+		action: async () => await play(at('ascendant_wakes'), 'ascendant_wakes'),
 	})}
 	{template}
 />
 
 <Story
-	name="draco top rung"
+	name="ascendant top rung"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
-		action: async () => await play(at('draco_top_rung'), 'draco_top_rung'),
+		action: async () => await play(at('ascendant_top_rung'), 'ascendant_top_rung'),
 	})}
 	{template}
 />
 
-<!-- The tier mix a base spin can deal. -->
+<!-- The three purchasable tiers, for comparison against their own buy modes. -->
 <Story
-	name="corvus (3 scatters)"
+	name="rolled corvus"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
@@ -105,7 +108,7 @@
 />
 
 <Story
-	name="ursa (4 scatters)"
+	name="rolled ursa"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
@@ -115,7 +118,7 @@
 />
 
 <Story
-	name="draco (5 scatters)"
+	name="rolled draco"
 	args={templateArgs({
 		skipLoadingScreen: true,
 		data: {},
