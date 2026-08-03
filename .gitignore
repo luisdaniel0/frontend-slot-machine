@@ -64,3 +64,4 @@ packages/e2e/math-testing/__pycache__/*
 #   ./env/bin/python games/starwake/export_story_books.py
 apps/starwake/src/stories/data/*_books.ts
 apps/starwake/src/stories/data/*_scenarios.ts
+apps/starwake/src/stories/data/*_weights.ts

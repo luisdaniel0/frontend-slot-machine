@@ -1,6 +1,15 @@
 <script lang="ts" module>
 	import { defineMeta } from '@storybook/addon-svelte-csf';
 
+	// Imported HERE, not in the instance script. defineMeta runs at MODULE scope,
+	// where an instance-scope import is invisible -- so "component: Symbol" below
+	// silently resolved to JavaScript's built-in Symbol global instead of the
+	// component. That is what the CSF parser choked on every boot:
+	//   "Expected 'ObjectExpression' but found 'undefined' instead in 'Identifier'"
+	// Inherited from the lines sample; module-scope vars are visible to the
+	// instance script, so the one import serves both.
+	import Symbol from '../components/Symbol.svelte';
+
 	const { Story } = defineMeta({
 		title: 'Components/<Symbol>',
 		component: Symbol,
@@ -17,7 +26,6 @@
 	import { Container, Text } from 'pixi-svelte';
 	import { StoryPixiApp } from 'components-storybook';
 
-	import Symbol from '../components/Symbol.svelte';
 	import { SYMBOL_STATES } from '../game/types';
 	import assets from '../game/assets';
 
